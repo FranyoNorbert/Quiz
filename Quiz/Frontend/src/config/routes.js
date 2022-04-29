@@ -4,6 +4,7 @@ import Users from "../components/routes/Users.vue";
 import Login from "../components/routes/Login.vue";
 import Profile from "../components/routes/Profile.vue";
 import NotFound from "../components/routes/NotFound.vue";
+import Register from "../components/routes/Register.vue";
 
 
 //2. route - komponens hozzárendelés
@@ -19,6 +20,14 @@ const routes = [{
         name: "login",
         path: "/login/",
         component: Login,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    {
+        name: "register",
+        path: "/register/",
+        component: Register,
         meta: {
             requiresAuth: false
         }

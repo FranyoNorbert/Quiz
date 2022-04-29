@@ -31,6 +31,7 @@ class User {
 Vue.config.productionTip = false;
 
 Vue.prototype.$loginServer = "http://localhost:3000";
+Vue.prototype.$registerServer = "http://localhost:3000";
 
 let x = new Vue({
     router,

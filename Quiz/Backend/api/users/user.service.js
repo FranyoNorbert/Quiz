@@ -6,7 +6,18 @@ module.exports = {
         (firstName,lastName,gender,email,password,phoneNumber,access) 
         VALUES (?,?,?,?,?,?,?);
         `
-        let params = Object.values(data);
+        // let params = Object.values(data);
+        params = [
+            data.firstName,
+            data.lastName,
+            data.gender,
+            data.email,
+            data.password,
+            data.phoneNumber,
+            data.access
+        ]
+        // console.log("adat:",params);
+        // return;
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
                 return callBack(error);

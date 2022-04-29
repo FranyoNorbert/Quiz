@@ -2,7 +2,7 @@
 Modulok:
 - express [express help](http://expressjs.com/en/5x/api.html#res)
 - mysql [mysql](https://www.npmjs.com/package/mysql)
-- dotenv [dotenv-npm](https://www.npmjs.com/package/dotenv)
+- dotenv [dotenv-npm](htps://www.npmjs.com/package/dotenv)
     - A Dotenv egy nulla függőségi modul, amely környezeti változókat tölt be egy .env fájlból a process.env fájlba. A konfiguráció kódtól elkülönített környezetben történő tárolása a The Twelve-Factor App módszertanon alapul.
 - bcrypt   
 - jsonwebtoken  [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)

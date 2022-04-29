@@ -12,19 +12,19 @@ ENGINE = INNODB,
 CHARACTER SET utf8,
 COLLATE utf8_general_ci;
 
-ALTER TABLE quiz.useranswers 
-  ADD CONSTRAINT FK_useranswers_answerchoices_id FOREIGN KEY (questionChoiceId)
+ALTER TABLE quiz.questionchoice 
+  ADD CONSTRAINT FK_useranswers_questionchoice_id FOREIGN KEY (questionChoiceId)
     REFERENCES quiz.answerchoices(id);
 
-ALTER TABLE quiz.useranswers 
+ALTER TABLE quiz.questionchoice 
   ADD CONSTRAINT FK_useranswers_question_id FOREIGN KEY (questionId)
     REFERENCES quiz.question(id);
 
-ALTER TABLE quiz.useranswers 
+ALTER TABLE quiz.questionchoice 
   ADD CONSTRAINT FK_useranswers_quiz_id FOREIGN KEY (quizId)
     REFERENCES quiz.quiz(id);
 
-ALTER TABLE quiz.useranswers 
+ALTER TABLE quiz.questionchoice 
   ADD CONSTRAINT FK_useranswers_user_id FOREIGN KEY (userId)
     REFERENCES quiz.user(id);
 
@@ -81,9 +81,9 @@ COLLATE utf8_general_ci;
 
 CREATE TABLE quiz.answerchoices (
   id INT(11) NOT NULL AUTO_INCREMENT,
-  choices VARCHAR(255) DEFAULT NULL,
+  choice VARCHAR(255) DEFAULT NULL,
   questionId INT(11) DEFAULT NULL,
-  rightAnswer VARCHAR(255) DEFAULT NULL,
+  points INT(11) DEFAULT NULL,
   PRIMARY KEY (id)
 )
 ENGINE = INNODB,

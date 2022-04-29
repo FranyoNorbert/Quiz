@@ -20,16 +20,15 @@
             </div>
         </div>
         <button type="button" class="btn btn-primary" @click="onClickLogin()">
-            Primary
+            Login
         </button>
         <div class="alert alert-danger m-3" role="alert" v-if="noSuccess">
             A bejelntkezés sikertelen: Rossz email vagy jelszó!
         </div>
+        <router-link class="btn btn-primary" aria-current="page" to="/register"
+            >Register</router-link
+        >
         <div>
-            <ul>
-                <li>{{ loginResponse.success }}</li>
-                <li>{{ loginResponse.message }}</li>
-            </ul>
             <textarea
                 name=""
                 id=""
@@ -74,12 +73,12 @@ export default {
                     this.$root.$data.token = data.token;
                     this.$root.$data.user = data.data;
                     if (data.success) {
-                        this.$router.push({path: "/"})
+                        this.$router.push({ path: "/" });
                     } else {
                         this.noSuccess = true;
-                        setTimeout(()=>{
+                        setTimeout(() => {
                             this.noSuccess = false;
-                        },2000)
+                        }, 2000);
                     }
                 })
                 .catch((error) => {
