@@ -9,7 +9,6 @@ A program futtatásához programok:
 - Google chrome
 
 Fejlesztői környezet telepítése
-Ha a fenti alkalmazások közül hiányzik bármelyik is akkor a legelső lépés ezek telepítése a megadott linkekről. Ha minden alkalmazás telepítve van elkezdődhet a program beindítása ezeknek a lépéseknek a követésével:
 
 Xampp elinditása -> Ezenbelűl a MySql és az Apach szerver
 Mappa létrehozása (értelem szerűen ide fog letöltődni a program)
