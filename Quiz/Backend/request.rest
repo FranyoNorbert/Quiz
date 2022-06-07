@@ -72,7 +72,8 @@ Content-Type: application/json
 
 {
     "quizName": "Test",
-    "Description": "TestDesc"
+    "Description": "TestDesc",
+    "CategoryId": 1
 }
 
 ### quiz Update
@@ -160,7 +161,7 @@ delete http://localhost:3000/api/category
 Content-Type: application/json
 
 {
-    "id": 6
+    "id": 1
 }
 
 

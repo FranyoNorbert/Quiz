@@ -7,6 +7,7 @@
 
     <Head></Head>
     <Menu></Menu>
+
     <router-view></router-view>
     <Footer></Footer>
     <!-- <Head></Head> -->
@@ -17,7 +18,7 @@
 import Head from "./components/Head.vue";
 import Footer from "./components/Footer.vue";
 import Menu from "./components/Menu.vue";
-// import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: "App",
@@ -25,19 +26,23 @@ export default {
     Head,
     Footer,
     Menu,
-    // HelloWorld
+    
   },
 };
 </script>
 
 <style>
 .my-border {
-  border: 1px dashed black;
+  border: 2px solid white;
   padding: 0 10px;
+  color: white;
+  border-radius: 25px
 }
 
 .container {
   max-width: 400px;
   margin: 20px auto;
+  background: #09796b;
+  border-radius: 25px
 }
 </style>

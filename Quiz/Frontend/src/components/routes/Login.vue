@@ -19,22 +19,22 @@
                     v-model="loginData.password" />
             </div>
         </div>
-        <button type="button" class="btn btn-primary" @click="onClickLogin()">
+        <button type="button" class="btn btn-success m-2" @click="onClickLogin()">
             Login
         </button>
         <div class="alert alert-danger m-3" role="alert" v-if="noSuccess">
             A bejelntkezés sikertelen: Rossz email vagy jelszó!
         </div>
-        <router-link class="btn btn-primary" aria-current="page" to="/register"
+        <router-link class="btn btn-success" aria-current="page" to="/register"
             >Register</router-link
         >
         <div>
-            <textarea
+            <!-- <textarea
                 name=""
                 id=""
                 cols="85"
                 rows="5"
-                v-model="loginResponse.token"></textarea>
+                v-model="loginResponse.token"></textarea> -->
         </div>
     </div>
 </template>
@@ -62,7 +62,7 @@ export default {
             let headers = new Headers();
             headers.append("Content-Type", "application/json");
             fetch(url, {
-                method: "POST", // or 'PUT'
+                method: "POST", 
                 headers: headers,
                 body: JSON.stringify(this.loginData),
             })

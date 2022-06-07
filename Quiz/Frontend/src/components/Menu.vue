@@ -2,19 +2,8 @@
     <div class="my-border">
         <!-- 5. Cserélkük le a lineket: a -> router-link, href -> to, link -> route (útvonal) -->
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <router-link class="navbar-brand" to="/">Navbar</router-link>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div
                     class="collapse navbar-collapse"
                     id="navbarSupportedContent">
@@ -24,56 +13,13 @@
                                 class="nav-link active"
                                 aria-current="page"
                                 to="/"
+                                style="color: white"
                                 >Főoldal</router-link
                             >
                         </li>
-                         <li class="nav-item">
-                             <router-link class="nav-link"
-                                to="/tarifa"
-                                role="button"
-                                aria-expanded="false">
-                                Tarifa</router-link>
-                         </li>
-                        <!--#region adatKarbantartás -->
-                        <li class="nav-item dropdown" v-if="loggedIn()">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="navbarDropdown"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                adatKarbantartás
-                            </a>
-                            <ul
-                                class="dropdown-menu"
-                                aria-labelledby="navbarDropdown">
-                                <li>
-                                    <router-link
-                                        class="dropdown-item"
-                                        to="/autopark"
-                                        >Autópark</router-link
-                                    >
-                                </li>
-                                <li>
-                                    <router-link
-                                        class="dropdown-item"
-                                        to="/fuvarok"
-                                        >Fuvarok</router-link
-                                    >
-                                </li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li>
-                                    <router-link
-                                        class="dropdown-item"
-                                        to="/users"
-                                        >Users</router-link
-                                    >
-                                </li>
-                            </ul>
-                        </li>
+                         
                         
-                        <!--#endregion adatKarbantartás -->
+                        
 
                         <!--#region login -->
                         <li class="nav-item dropdown" v-if="loggedIn()">
@@ -83,7 +29,9 @@
                                 id="navbarDropdown"
                                 role="button"
                                 data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                                aria-expanded="false"
+                                style="color: white"
+                                >
                                 {{ $root.$data.user.lastName }}
                             </a>
                             <ul
@@ -93,6 +41,7 @@
                                     <router-link
                                         class="dropdown-item"
                                         to="/login"
+                                        style="color: white"
                                         >Logout</router-link
                                     >
                                 </li>
@@ -100,6 +49,7 @@
                                     <router-link
                                         class="dropdown-item"
                                         to="/profile"
+                                        style="color: white"
                                         >Profil</router-link
                                     >
                                 </li>
@@ -110,6 +60,7 @@
                             <router-link
                                 class="nav-link"
                                 to="/login"
+                                style="color: white"
                                 v-if="!loggedIn()"
                                 >Login</router-link
                             >
@@ -121,7 +72,8 @@
                             type="search"
                             placeholder="Search"
                             aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">
+                        <button class="btn " style="background-color: #89d8d3;
+background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);" type="submit">
                             Search
                         </button>
                     </form>
@@ -147,9 +99,20 @@ class User {
         this.number = number;
     }
 }
+class Category {
+    constructor(categoryName = null) {
+        this.categoryName = categoryName;
+    }
+}
 
 export default {
     name: "Menu",
+    data(){
+        return {
+            categoryList: [],
+            category: new Category()
+        }
+    },
     methods: {
         loggedIn() {
             return Boolean(this.$root.$data.token);
@@ -158,6 +121,29 @@ export default {
             this.$root.$data.token = null;
             this.$root.$data.user = new User();
         },
+        getCategory() {
+            let headers = new Headers();
+
+            headers.append("Content-Type", "application/json");
+            headers.append("Authorization", "Bearer " + this.$root.$data.token);
+            const url = `${this.$loginServer}/api/category`;
+            fetch(url, {
+                method: "GET",
+                headers: headers,
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Success:", data.data);
+                    this.categoryList = data.data;
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                    this.categoryList = [];
+                });
+        }
+        
+        
+        
     },
 };
 </script>

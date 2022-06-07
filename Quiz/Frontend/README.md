@@ -1,4 +1,3 @@
-# hirek
 
 ## Project setup
 ```

@@ -28,6 +28,7 @@ class User {
     }
 }
 
+
 Vue.config.productionTip = false;
 
 Vue.prototype.$loginServer = "http://localhost:3000";
@@ -38,7 +39,8 @@ let x = new Vue({
     data() {
         return {
             token: null,
-            user: new User()
+            user: new User(),
+            
         };
     },
     created(){
@@ -72,6 +74,6 @@ router.beforeEach((to, from, next) => {
             next()
         }
     } else {
-        next() // make sure to always call next()!
+        next() 
     }
 });

@@ -27,8 +27,8 @@ module.exports = {
         });
     },
     createQuiz: (data, callBack) => {
-        let queryString = `INSERT INTO quiz (quizName,Description,created) 
-        VALUES (?,?,Now());
+        let queryString = `INSERT INTO quiz (quizName,Description,created,CategoryId) 
+        VALUES (?,?,Now(),?);
         `
         let params = Object.values(data);
         pool.query(queryString, params, (error, results, fields) => {

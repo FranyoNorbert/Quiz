@@ -7,7 +7,7 @@ var cors = require('cors');
 
 // use it before all route definitions
 app.use(cors({
-    origin: 'http://localhost:8080',
+    origin: 'http://localhost:8081',
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
 }));
 

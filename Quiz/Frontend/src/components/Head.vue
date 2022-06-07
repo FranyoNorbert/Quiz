@@ -1,6 +1,6 @@
 <template>
-  <div class="my-border">
-      <h1>Head</h1>
+  <div>
+      <h1 class="text-center" style="color:white;">Quiz</h1>
   </div>
 </template>
 

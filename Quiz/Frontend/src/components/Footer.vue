@@ -1,6 +1,6 @@
 <template>
-<div class="my-border">
-  <p>Footer</p>
+<div>
+  
 </div>
 </template>
 
