@@ -1,0 +1,50 @@
+data: [
+    {
+      quizId: 1,
+      questionId: 1,
+      question: Name the artwork!,
+      quizName: Famous Art!,
+      Description: Can you name all these famous artworks?,
+      created: 2022-06-08T06:05:45.000Z,
+      categoryId: 1,
+      response: [
+            {
+            id: 1,
+            choice: The Tsunami,
+            questionId: 1,
+            points: 0
+            checked: false
+            },
+            {
+            id: 2,
+            choice: The Wave,
+            questionId: 1,
+            points: 1
+            },
+            {
+            id: 3,
+            choice: The Boat,
+            questionId: 1,
+            points: 0
+            },
+            {
+            id: 4,
+            choice: The Wind,
+            questionId: 1,
+            points: 0
+            }
+        ]
+    },
+    {
+      quizId: 1,
+      questionId: 2,
+      question: Name the artwork!,
+      quizName: Famous Art!,
+      Description: Can you name all these famous artworks?,
+      created: 2022-06-08T06:05:45.000Z,
+      categoryId: 1
+      response: [...]
+    }
+    ]
+
+ 

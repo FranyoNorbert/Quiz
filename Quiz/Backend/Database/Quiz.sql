@@ -1,11 +1,32 @@
 ﻿SELECT * FROM useranswers;
 
-SELECT * FROM question; /* Need LookOver but Done */
-SELECT * FROM user; /* Backend Done */
-SELECT * FROM category; /* Done */
-SELECT * FROM quiz; /* Done */
-SELECT * FROM questionchoice; /* Done */
+SELECT * FROM question; 
+SELECT * FROM user;
+SELECT * FROM category; 
+SELECT * FROM quiz; 
+SELECT * FROM questionchoice;
 
+SELECT * FROM questionchoice
+WHERE questionId = 1;
+
+
+SELECT qz.id quizId, q.id questionId, q.question,qz.quizName,qz.Description,qz.created,qz.categoryId FROM question q
+INNER JOIN quiz qz on qz.id = q.quizId
+WHERE qz.id = 1;
+
+  select question,categoryId , quizId from question where id=2;
+
+  SELECT qz.id quizId, q.id questionId,qc.id questionChoiceId, q.question,qc.choice,qc.points FROM question q
+  INNER JOIN questionchoice qc ON q.id = qc.questionId 
+  INNER JOIN quiz qz ON qz.id = q.quizId
+  WHERE qz.id = 1;
+
+  SELECT qz.id quizId,, q.id questionId,qc.id questionChoiceId, q.question,qc.choice,qc.points FROM question q
+        INNER JOIN questionchoice qc ON q.id = qc.questionId;
+
+select DISTINCT q.quizName,q.Description,c.categoryName,q.created from quiz q 
+INNER JOIN category c ON c.id = q.categoryId; 
+  
 /*USER*/
 INSERT INTO user (firstName,lastName,gender,email,password,phoneNumber,access) VALUES ();
 
@@ -995,6 +1016,9 @@ VALUES
 SET FOREIGN_KEY_CHECKS = 1;
 
 /*QuestionChoice Feltöltése.*/
+
+UPDATE questionchoice SET choice = 0;
+
 
 INSERT INTO questionchoice 
 (id,choice,questionId,points) 

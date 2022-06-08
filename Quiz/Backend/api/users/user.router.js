@@ -28,6 +28,9 @@ const {
     createUA,
     getUA,
     getUAById,
+    getQuestionAndQuiz,
+    getQuestionAndChoicesAll,
+    getChoiceByQuestionId
 } = require("./user.controller.js")
 const router = require("express").Router();
 const {checkToken} = require("../../auth/token_validation");
@@ -74,5 +77,8 @@ router.post("/UserAnswers",checkToken,createUA);
 router.get("/UserAnswers",checkToken,getUA);
 router.get("/UserAnswers/:id",checkToken,getUAById);
 
+router.get("/getQuestionAndQuiz/:id",checkToken,getQuestionAndQuiz);
+router.get("/getQuestionAndChoices",checkToken,getQuestionAndChoicesAll);
 
+router.get("/getChoiceByQuestionId/:id",checkToken,getChoiceByQuestionId)
 module.exports = router;

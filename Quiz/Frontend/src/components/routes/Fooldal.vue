@@ -7,9 +7,10 @@
             <div class="card-body" >
                     <h5 class="card-title">{{quiz.quizName}}</h5>
                     <p class="card-title">{{quiz.Description}}</p>
-                    <p class="card-footer">{{quiz.categoryId}}<br>{{quiz.created}}</p>
-                    <button type="button" class="btn" style="background-color: #89d8d3;
-background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);">Start</button>
+                    <p class="card-footer">{{quiz.categoryName}} <br> {{quiz.created}}</p>
+                    <router-link type="button" class="btn" style="background-color: #89d8d3; background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);" 
+                    :to="`/quiz/${quiz.id}`">Start</router-link
+        >
             </div>
         </div>
       </div>
@@ -45,7 +46,6 @@ export default {
             state: "view",
             stateTitle: null,
             quizList: [],
-            categoryList: [],
             quiz: new Quiz(),
             category: new Category(),
             form: null,
@@ -73,26 +73,6 @@ export default {
                 .catch((error) => {
                     console.error("Error:", error);
                     this.quizList = [];
-                });
-        },
-        getCategory() {
-            let headers = new Headers();
-
-            headers.append("Content-Type", "application/json");
-            headers.append("Authorization", "Bearer " + this.$root.$data.token);
-            const url = `${this.$loginServer}/api/category`;
-            fetch(url, {
-                method: "GET",
-                headers: headers,
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log("Success:", data.data);
-                    this.categoryList = data.data;
-                })
-                .catch((error) => {
-                    console.error("Error:", error);
-                    this.categoryList = [];
                 });
         },
     },

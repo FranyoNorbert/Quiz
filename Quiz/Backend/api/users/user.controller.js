@@ -28,6 +28,9 @@ const {
     createUA,
     getUA,
     getUAById,
+    getQuestionAndQuiz,
+    getQuestionAndChoicesAll,
+    getChoiceByQuestionId
 } = require("./user.service.js");
 
 const {
@@ -210,6 +213,78 @@ module.exports = {
     getUserByUserId: (req, res) => {
         const id = req.params.id;
         getUserByUserId(id, (err, results) => {
+            if (err) {
+                return res.status(500).json({
+                    success: -1,
+                    message: "Server error",
+                    data: {}
+                });
+            }
+            if (!results) {
+                return res.status(200).json({
+                    success: 0,
+                    message: "Record not found!",
+                    data: {}
+                })
+            }
+            return res.status(200).json({
+                success: 1,
+                message: "Record found!",
+                data: results
+            });
+        });
+    },
+    getChoiceByQuestionId: (req, res) => {
+        const id = req.params.id;
+        getChoiceByQuestionId(id, (err, results) => {
+            if (err) {
+                return res.status(500).json({
+                    success: -1,
+                    message: "Server error",
+                    data: {}
+                });
+            }
+            if (!results) {
+                return res.status(200).json({
+                    success: 0,
+                    message: "Record not found!",
+                    data: {}
+                })
+            }
+            return res.status(200).json({
+                success: 1,
+                message: "Record found!",
+                data: results
+            });
+        });
+    },
+    getQuestionAndQuiz: (req, res) => {
+        const id = req.params.id;
+        getQuestionAndQuiz(id, (err, results) => {
+            if (err) {
+                return res.status(500).json({
+                    success: -1,
+                    message: "Server error",
+                    data: {}
+                });
+            }
+            if (!results) {
+                return res.status(200).json({
+                    success: 0,
+                    message: "Record not found!",
+                    data: {}
+                })
+            }
+            return res.status(200).json({
+                success: 1,
+                message: "Record found!",
+                data: results
+            });
+        });
+    },
+    getQuestionAndChoicesAll: (req, res) => {
+        
+        getQuestionAndChoicesAll( (err, results) => {
             if (err) {
                 return res.status(500).json({
                     success: -1,

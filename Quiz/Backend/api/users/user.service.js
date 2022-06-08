@@ -116,7 +116,8 @@ module.exports = {
         });
     },
     getQuiz: callBack => {
-        const queryString = `select * from quiz`;
+        const queryString = `select DISTINCT q.id, q.quizName,q.Description,c.categoryName,q.created from quiz q 
+        INNER JOIN category c ON c.id = q.categoryId; `;
         const params = [];
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
@@ -125,7 +126,7 @@ module.exports = {
             }
             return callBack(null, results);
         });
-    }, 
+    },
     getQuestion: callBack => {
         const queryString = `select * from question`;
         const params = [];
@@ -185,6 +186,52 @@ module.exports = {
             return callBack(null, results);
         });
     },
+    getQuestionAndQuiz: (id, callBack) => {
+        const queryString = `SELECT 
+        qz.id quizId,
+         q.id questionId,
+          q.question,
+          qz.quizName,
+          qz.Description,
+          qz.created,
+          qz.categoryId FROM question q
+        INNER JOIN quiz qz on qz.id = q.quizId
+        WHERE qz.id = ?;`;
+        const params = [id];
+        // params= []
+        // const queryString = `select * from registration where id=${id}`;
+        // console.log(queryString);
+        pool.query(queryString, params, (error, results, fields) => {
+            if (error) {
+                return callBack(error);
+
+            }
+            // return callBack(null, results[0]);
+            return callBack(null, results);
+        });
+    },
+    getQuestionAndChoicesAll: (callBack) => {
+        const queryString = `SELECT qz.id quizId,
+        q.id questionId,
+        qc.id questionChoiceId,
+        q.question,qc.choice,
+        qc.points 
+        FROM question q
+        INNER JOIN questionchoice qc ON q.id = qc.questionId
+        INNER JOIN quiz qz ON qz.id = q.quizId`;
+
+        params = [];
+        // const queryString = `select * from registration where id=${id}`;
+        // console.log(queryString);
+        pool.query(queryString, params, (error, results, fields) => {
+            if (error) {
+                return callBack(error);
+
+            }
+            // return callBack(null, results[0]);
+            return callBack(null, results);
+        });
+    },
     getQuizById: (id, callBack) => {
         const queryString = `select * from quiz where id=?`;
         const params = [id];
@@ -197,7 +244,7 @@ module.exports = {
         });
     },
     getQuestionById: (id, callBack) => {
-        const queryString = `select question,categoryId , quizId from question where id=?`;
+        const queryString = `select question, quizId from question where id=?`;
         const params = [id];
         pool.query(queryString, params, (error, results, fields) => {
             if (error) {
@@ -216,6 +263,17 @@ module.exports = {
 
             }
             return callBack(null, results[0]);
+        });
+    },
+    getChoiceByQuestionId: (id, callBack) => {
+        const queryString = `SELECT * FROM questionchoice WHERE questionId = ?;`;
+        const params = [id];
+        pool.query(queryString, params, (error, results, fields) => {
+            if (error) {
+                return callBack(error);
+
+            }
+            return callBack(null, results);
         });
     },
     getQCById: (id, callBack) => {
@@ -263,7 +321,7 @@ module.exports = {
             data.Description,
             data.id
         ]
-        console.log("Update car:",params);
+        console.log("Update car:", params);
         pool.query(queryString, params, (error, results, fields) => {
             console.log(params, queryString, results);
             if (error) {

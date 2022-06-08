@@ -5,6 +5,7 @@ import Login from "../components/routes/Login.vue";
 import Profile from "../components/routes/Profile.vue";
 import NotFound from "../components/routes/NotFound.vue";
 import Register from "../components/routes/Register.vue";
+import Quiz from "../components/routes/Quiz.vue";
 
 
 //2. route - komponens hozzárendelés
@@ -36,6 +37,14 @@ const routes = [{
         name: "fooldal",
         path: "/",
         component: Fooldal,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    {
+        name: "quiz",
+        path: "/quiz/:id",
+        component: Quiz,
         meta: {
             requiresAuth: false
         }

@@ -63,6 +63,15 @@ Content-Type: application/json
 get http://localhost:3000/api/quiz
 Authorization: Bearer 
 
+### getQuestionAndQuiz
+get http://localhost:3000/api/getQuestionAndQuiz/3
+Authorization: Bearer 
+
+ 
+
+### getChoiceByQuestionId
+get http://localhost:3000/api/getChoiceByQuestionId/2
+
 ### quizById
 get http://localhost:3000/api/quiz/2
 
